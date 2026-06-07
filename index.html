@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Best Friend Day - Saima</title>
+    
+    <!-- External Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Dreamy Cinematic Background Elements -->
+    <div id="particles-container"></div>
+    <div class="clouds-overlay"></div>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="Aashiyan.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Music Toggle Controller -->
+    <button id="music-toggle" class="music-hidden" aria-label="Toggle Music">
+        <i class="fas fa-music"></i>
+    </button>
+
+    <!-- Screen 1: Premium Loading / Tap To Begin Portal -->
+    <div id="start-screen">
+        <div class="start-card">
+            <div class="sparkle-badge">✨</div>
+            <h1>A Special Surprise</h1>
+            <p>Crafted exclusively for someone wonderful</p>
+            <button id="start-btn">Tap To Begin</button>
+            <div class="audio-notice">🎧 Best experienced with music on</div>
+        </div>
+    </div>
+
+    <!-- Main Dynamic Container -->
+    <main id="main-content">
+        
+        <!-- Screen 2: Animated Welcome Reveal -->
+        <section class="story-section">
+            <div class="glass-card scroll-reveal">
+                <h1 class="main-hero-title">Happy Best Friend Day,<br><span class="highlight-name">Saima</span></h1>
+                <div class="card-accent-sparkle">🌸</div>
+            </div>
+        </section>
+
+        <!-- Screen 3: Message Card 1 -->
+        <section class="story-section">
+            <div class="glass-card scroll-reveal">
+                <p class="story-text">"Kabhi nahi socha tha ki ek random Instagram GC se meri life ki itni close besti mil jayegi."</p>
+                <span class="soft-heart-icon">🤍</span>
+            </div>
+        </section>
+
+        <!-- Screen 4: Message Card 2 -->
+        <section class="story-section">
+            <div class="glass-card scroll-reveal">
+                <p class="story-text">"Tere saath guzra hua har moment mere liye special hai."</p>
+                <span class="soft-heart-icon">✨</span>
+            </div>
+        </section>
+
+        <!-- Screen 5: Message Card 3 -->
+        <section class="story-section">
+            <div class="glass-card scroll-reveal">
+                <p class="story-text">"Kuch memories chhoti hoti hain, lekin unki value bahut badi hoti hai."</p>
+                <span class="soft-heart-icon">🌸</span>
+            </div>
+        </section>
+
+        <!-- Screen 6: Memory Card -->
+        <section class="story-section">
+            <div class="glass-card scroll-reveal">
+                <p class="story-text">"Waise... ice cream wali memory abhi bhi meri favourites me se ek hai."</p>
+                <div class="memory-emoji">🍦</div>
+            </div>
+        </section>
+
+        <!-- Screen 7: Grand Emotional Finale -->
+        <section class="story-section finale-section">
+            <div class="glass-card scroll-reveal finale-card">
+                <p class="story-text final-greeting">"Thank you for being such an amazing besti."</p>
+                <div class="aesthetic-line"></div>
+                <h2 class="sub-hero-title">Happy Best Friend Day, Saima 🌸</h2>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Core Script Logic -->
+    <script src="script.js"></script>
+</body>
+</html>

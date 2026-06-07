@@ -1,0 +1,352 @@
+/* --- Premium Aesthetic Core Stylesheet --- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --bg-gradient: linear-gradient(180deg, #fff2f6 0%, #fce4ec 40%, #fae1e8 70%, #fcecf0 100%);
+    --text-color: #5c414a;
+    --accent-pink: #d991a9;
+    --glass-background: rgba(255, 255, 255, 0.42);
+    --glass-border: rgba(255, 255, 255, 0.65);
+    --card-shadow: rgba(217, 145, 169, 0.18);
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* --- Particle Engine Background Layout --- */
+#particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.clouds-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.4) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(255,255,255,0.3) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Particle Elements */
+.particle {
+    position: absolute;
+    opacity: 0;
+    animation: floatingEffect linear infinite;
+    user-select: none;
+    pointer-events: none;
+}
+
+.petal-element {
+    width: 14px;
+    height: 14px;
+    background: linear-gradient(135deg, #ffc2d1, #ff99ac);
+    border-radius: 50% 0 50% 50%;
+    transform: rotate(45deg);
+    filter: drop-shadow(0 2px 5px rgba(255, 153, 172, 0.3));
+}
+
+.heart-element {
+    color: #ff9aa6;
+    font-size: 14px;
+    filter: drop-shadow(0 2px 6px rgba(255, 154, 166, 0.4));
+}
+
+.sparkle-element {
+    width: 5px;
+    height: 5px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.9);
+}
+
+@keyframes floatingEffect {
+    0% {
+        transform: translateY(105vh) translateX(0) rotate(0deg) scale(0.7);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.85;
+    }
+    85% {
+        opacity: 0.85;
+    }
+    100% {
+        transform: translateY(-10vh) translateX(50px) rotate(360deg) scale(1.1);
+        opacity: 0;
+    }
+}
+
+/* --- Screen 1: Splash / Access Verification Screen --- */
+#start-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #fff5f8 0%, #fce4eb 100%);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+}
+
+.start-card {
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.sparkle-badge {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    animation: dynamicPulse 2.5s infinite ease-in-out;
+}
+
+.start-card h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 400;
+    color: var(--accent-pink);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.start-card p {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--text-color);
+    margin-bottom: 36px;
+    opacity: 0.85;
+}
+
+#start-btn {
+    background: #ffffff;
+    border: 1px solid var(--glass-border);
+    padding: 16px 44px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--text-color);
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(217, 145, 169, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#start-btn:hover, #start-btn:active {
+    transform: translateY(-2px);
+    background-color: #fff9fb;
+    box-shadow: 0 14px 32px rgba(217, 145, 169, 0.3);
+}
+
+.audio-notice {
+    font-size: 0.85rem;
+    opacity: 0.65;
+    margin-top: 24px;
+    font-weight: 300;
+}
+
+@keyframes dynamicPulse {
+    0% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 8px rgba(255,255,255,0.6)); }
+    100% { transform: scale(1); opacity: 0.7; }
+}
+
+/* --- Main Layout Architecture --- */
+#main-content {
+    display: none; /* Controlled programmatically via JS */
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.story-section {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    position: relative;
+}
+
+/* --- Glassmorphic Container Standards --- */
+.glass-card {
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 50px 36px;
+    max-width: 460px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 12px 40px var(--card-shadow);
+    position: relative;
+    z-index: 5;
+}
+
+/* Smooth Interactive Micro-Glow Line */
+.glass-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 10%; right: 10%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.7), transparent);
+}
+
+/* --- Typographical Styling --- */
+.main-hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.3rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--text-color);
+}
+
+.highlight-name {
+    font-size: 3.8rem;
+    font-weight: 600;
+    color: var(--accent-pink);
+    font-style: italic;
+    display: inline-block;
+    margin-top: 8px;
+    letter-spacing: 0.5px;
+}
+
+.story-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem;
+    line-height: 1.6;
+    font-style: italic;
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+.card-accent-sparkle {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+.soft-heart-icon {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 1.3rem;
+    opacity: 0.6;
+}
+
+.memory-emoji {
+    font-size: 2.5rem;
+    margin-top: 20px;
+    animation: dynamicPulse 3s infinite alternate;
+}
+
+/* Finale Specifics */
+.finale-card {
+    max-width: 500px;
+    padding: 60px 40px;
+}
+
+.final-greeting {
+    font-size: 1.75rem;
+    margin-bottom: 12px;
+}
+
+.aesthetic-line {
+    height: 1px;
+    width: 60%;
+    background: linear-gradient(90deg, transparent, var(--accent-pink), transparent);
+    margin: 28px auto;
+    opacity: 0.4;
+}
+
+.sub-hero-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--accent-pink);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+/* --- Scroll-Triggered Spatial Animations --- */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(60px) scale(0.96);
+    transition: opacity 1.4s cubic-bezier(0.215, 0.610, 0.355, 1), 
+                transform 1.4s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+
+.scroll-reveal.active-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* --- Floating Music Controller --- */
+#music-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--glass-background);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--accent-pink);
+    font-size: 1.15rem;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 6px 20px var(--card-shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+#music-toggle:hover {
+    transform: scale(1.08);
+}
+
+#music-toggle.music-hidden {
+    display: none !important;
+}
+
+#music-toggle.muted-state {
+    color: #bfaab1;
+}
+
+/* --- Precision Mobile Optimization Queries --- */
+@media (max-width: 480px) {
+    .highlight-name { font-size: 3.1rem; }
+    .story-text { font-size: 1.6rem; }
+    .glass-card { padding: 40px 24px; margin: 0 12px; }
+    .start-card h1 { font-size: 2.2rem; }
+    .final-greeting { font-size: 1.5rem; }
+    .sub-hero-title { font-size: 1.1rem; letter-spacing: 1px; }
+}
